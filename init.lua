@@ -325,18 +325,18 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnos
 -- vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
 -- greatest remap ever: paste w/o copying replaced word
-vim.keymap.set('x', '<leader>p', '\"_dP')
+vim.keymap.set('x', '<leader>p', '\"_dP', { desc = 'Paste without copying' })
 
 -- next greatest remaps ever (asbjornHaland): copy to system clipboard
-vim.keymap.set('n', '<leader>y', [["+y]])
-vim.keymap.set('v', '<leader>y', [["+y]])
+--vim.keymap.set('n', '<leader>y', [["+y]], { desc = 'Copy to system clipboard' })
+--vim.keymap.set('v', '<leader>y', [["+y]], { desc = 'Copy to system clipboard' })
 
 -- delete to void register
-vim.keymap.set('n', '<leader>d', [["_d]])
-vim.keymap.set('v', '<leader>d', [["_d]])
+vim.keymap.set('n', '<leader>d', [["_d]], { desc = 'Delete to void register' })
+vim.keymap.set('v', '<leader>d', [["_d]], { desc = 'Delete to void register' })
 
 -- format file
-vim.keymap.set('n', '<leader>fo', vim.lsp.buf.format)
+vim.keymap.set('n', '<leader>fo', vim.lsp.buf.format, { desc = 'Format file' })
 
 -- NeoTree
 vim.keymap.set('n', '<leader>e', '<cmd>Neotree filesystem float toggle<CR>', { desc = 'Filetree' })
