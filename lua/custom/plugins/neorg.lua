@@ -1,18 +1,18 @@
 return {
-  "nvim-neorg/neorg",
-  dependencies = { "luarocks.nvim" },
-  version = "*",
+  'nvim-neorg/neorg',
+  dependencies = { 'luarocks.nvim' },
+  version = '*',
   config = function()
-    require("neorg").setup {
+    require('neorg').setup {
       load = {
-        ["core.defaults"] = {},
-        ["core.concealer"] = {},
-        ["core.dirman"] = {
+        ['core.defaults'] = {},
+        ['core.concealer'] = {},
+        ['core.dirman'] = {
           config = {
             workspaces = {
-              notes = "~/notes",
+              notes = '~/notes',
             },
-            default_workspace = "notes",
+            default_workspace = 'notes',
           },
         },
       },
