@@ -6,7 +6,13 @@ return {
     require('neorg').setup {
       load = {
         ['core.defaults'] = {},
-        ['core.concealer'] = {},
+        ['core.concealer'] = {
+          config = {
+            folds = true,
+            icon_preset = 'diamond',
+            init_open_folds = 'never',
+          },
+        },
         ['core.dirman'] = {
           config = {
             workspaces = {
@@ -15,6 +21,7 @@ return {
             default_workspace = 'notes',
           },
         },
+        ['core.summary'] = {},
       },
     }
 
