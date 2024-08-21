@@ -154,6 +154,8 @@ vim.opt.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 8
 
+vim.opt.conceallevel = 2
+
 -- Set spelling
 vim.o.spelllang = 'en_us'
 vim.o.spell = true
@@ -299,6 +301,7 @@ require('lazy').setup({
         ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
         ['<leader>t'] = { name = '[T]oggle', _ = 'which_key_ignore' },
         ['<leader>h'] = { name = 'Git [H]unk', _ = 'which_key_ignore' },
+        ['<leader>n'] = { name = 'Obsidian [N]otes', _ = 'which_key_ignore' },
       }
       -- visual mode
       require('which-key').register({
@@ -458,7 +461,7 @@ require('lazy').setup({
       -- Thus, Language Servers are external tools that must be installed separately from
       -- Neovim. This is where `mason` and related plugins come into play.
       --
-      -- If you're wondering about lsp vs treesitter, you can check out the wonderfully
+      -- If you're wondering about lsp vs treesitten, you can check out the wonderfully
       -- and elegantly composed help section, `:help lsp-vs-treesitter`
 
       --  This function gets run when an LSP attaches to a particular buffer.
@@ -590,6 +593,27 @@ require('lazy').setup({
             },
           },
         },
+
+        eslint = {
+          bin = 'eslint', -- or `eslint_d`
+          code_actions = {
+            enable = true,
+            apply_on_save = {
+              enable = true,
+              types = { 'directive', 'problem', 'suggestion', 'layout' },
+            },
+            disable_rule_comment = {
+              enable = true,
+              location = 'separate_line', -- or `same_line`
+            },
+          },
+          diagnostics = {
+            enable = true,
+            report_unused_disable_directives = false,
+            run_on = 'type', -- or `save`
+          },
+        },
+
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
@@ -857,7 +881,7 @@ require('lazy').setup({
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     opts = {
-      ensure_installed = { 'bash', 'c', 'diff', 'html', 'java', 'lua', 'luadoc', 'markdown', 'python', 'vim', 'vimdoc' },
+      ensure_installed = { 'bash', 'c', 'diff', 'go', 'html', 'java', 'javascript', 'lua', 'luadoc', 'markdown', 'python', 'vim', 'vimdoc' },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
